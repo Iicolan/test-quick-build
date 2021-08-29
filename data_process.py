@@ -53,4 +53,4 @@ if __name__ == '__main__':
     temp = pd.DataFrame(data_temp, columns = [names.split(',')[0]])
     result = pd.concat([result, temp],axis=1) #每一行是一个workload
   result.insert(0,'wl_name',col_name)
-  result.to_csv('../data/workload_with_all_metrics_demo.csv')
+  result.to_csv('demo.csv')
