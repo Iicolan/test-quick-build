@@ -1,0 +1,169 @@
+{
+    "metrics":
+    [   
+        {
+            "perf_metric": "br_per_instr",
+            "var_list": [
+                {"a": "BR_INST_RETIRED.ALL_BRANCHES"},
+                {"b": "INST_RETIRED.ANY"}
+            ],
+            "function": "lambda a, b : a/b"
+        },
+        {
+            "perf_metric": "ld_per_instr",
+            "var_list": [
+                {"a": "metric_loads per instr"}
+            ],
+            "function": "lambda a : a"            
+        },
+        {
+            "perf_metric": "st_per_instr",
+            "var_list": [
+                {"a": "metric_stores per instr"}
+            ],
+            "function": "lambda a : a"            
+        },
+        {
+            "perf_metric": "simd_width_per_instr",
+            "var_list": [
+                {"a": "metric_FP scalar single-precision FP instructions retired per instr"},
+                {"b": "metric_FP scalar double-precision FP instructions retired per instr"},
+                {"c": "metric_FP 128-bit packed single-precision FP instructions retired per instr"},
+                {"d": "metric_FP 128-bit packed double-precision FP instructions retired per instr"},
+                {"e": "metric_FP 256-bit packed single-precision FP instructions retired per instr"},
+                {"f": "metric_FP 256-bit packed double-precision FP instructions retired per instr"},
+                {"g": "metric_FP 512-bit packed single-precision FP instructions retired per instr"},
+                {"h": "metric_FP 512-bit packed double-precision FP instructions retired per instr"}
+            ],
+            "function": "lambda a,b,c,d,e,f,g,h : a + b + c*4 + d*2 + e*8 + f*4 + g*16 + h*8"            
+        },
+        {
+            "perf_metric": "tma_frontend_bound",
+            "var_list": [
+                {"a": "metric_TMA_Frontend_Bound(%)"}
+            ],
+            "function": "lambda a : a"            
+        },
+        {
+            "perf_metric": "tma_bad_speculation",
+            "var_list": [
+                {"a": "metric_TMA_Bad_Speculation(%)"}
+            ],
+            "function": "lambda a : a"            
+        },
+        {
+            "perf_metric": "tma_l2_backend_memory_bound",
+            "var_list": [
+                {"a": "metric_TMA_..Memory_Bound(%)"}
+            ],
+            "function": "lambda a : a"            
+        },
+        {
+            "perf_metric": "tma_l2_backend_core_bound",
+            "var_list": [
+                {"a": "metric_TMA_..Core_Bound(%)"}
+            ],
+            "function": "lambda a : a"            
+        },
+        {
+            "perf_metric": "tma_retiring",
+            "var_list": [
+                {"a": "metric_TMA_Retiring(%)"}
+            ],
+            "function": "lambda a : a"            
+        },
+        {
+            "perf_metric": "ipc",
+            "var_list": [
+                {"a": "metric_CPI"}
+            ],
+            "function": "lambda a : 1.0/a"            
+        },
+        {
+            "perf_metric": "memory_level_parallelism",
+            "var_list": [
+                {"a": "metric_TMA_Info_MLP"}
+            ],
+            "function": "lambda a : a"            
+        },
+
+        {
+            "perf_metric": "llc_mpi",
+            "var_list": [
+                {"a": "metric_LLC MPI (includes code+data+rfo w/ prefetches)"}
+            ],
+            "function": "lambda a : a"            
+        },
+        {
+            "perf_metric": "l2_mpi",
+            "var_list": [
+                {"a": "metric_L2 MPI (includes code+data+rfo w/ prefetches)"}
+            ],
+            "function": "lambda a : a"            
+        },
+        {
+            "perf_metric": "l1d_mpi",
+            "var_list": [
+                {"a": "metric_L1D MPI (includes data+rfo w/ prefetches)"}
+            ],
+            "function": "lambda a : a"            
+        },
+        {
+            "perf_metric": "l1i_mpi",
+            "var_list": [
+                {"a": "metric_L1-I code read misses (w/ prefetches) per instr"}
+            ],
+            "function": "lambda a : a"            
+        },
+        {
+            "perf_metric": "itlb_mpi",
+            "var_list": [
+                {"a": "metric_ITLB (2nd level) MPI"},
+                {"b": "metric_ITLB (2nd level) large page MPI"}
+            ],
+            "function": "lambda a,b : a+b"            
+        },
+        {
+            "perf_metric": "dtlb_mpi",
+            "var_list": [
+                {"a": "metric_DTLB (2nd level) load MPI"},
+                {"b": "metric_DTLB (2nd level) 4KB page load MPI"},
+                {"c": "metric_DTLB (2nd level) 2MB large page load MPI"},
+                {"d": "metric_DTLB (2nd level) 1GB large page load MPI"},
+                {"e": "metric_DTLB (2nd level) store MPI"}
+            ],
+            "function": "lambda a,b,c,d,e : a+b+c+d+e"            
+        },
+        {
+            "perf_metric": "cpu_stall_due_dram_access",
+            "var_list": [
+                {"a": "metric_TMA_....DRAM_Bound(%)"}
+            ],
+            "function": "lambda a : a"            
+        },
+        {
+            "perf_metric": "instr_mix_compute",
+            "var_list": [
+                {"a": "INST_RETIRED.ANY"},
+                {"b": "MEM_INST_RETIRED.ALL_LOADS"},
+                {"c": "MEM_INST_RETIRED.ALL_STORES"},
+                {"d": "BR_INST_RETIRED.ALL_BRANCHES"}
+            ],
+            "function": "lambda a,b,c,d : (a-b-c-d)/a"            
+        },
+        {
+            "perf_metric":"ipc_std_normalize",
+            "var_list":[
+                {"a":"IPC_std_normalize"}
+            ],
+            "function":"lambda a : a"
+        },
+        {
+            "perf_metric":"cpu_util_std_normalize",
+            "var_list":[
+                {"a":"CPU_Util_std_normalize"}
+            ],
+            "function":"lambda a : a"
+        }
+    ]
+  }
